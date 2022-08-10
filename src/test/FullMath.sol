@@ -15,7 +15,7 @@ library FullMath {
         uint256 a,
         uint256 b,
         uint256 denominator
-    ) public pure returns (uint256 result) {
+    ) internal pure returns (uint256 result) {
         unchecked {
             // 512-bit multiply [prod1 prod0] = a * b
             // Compute the product mod 2**256 and mod 2**256 - 1

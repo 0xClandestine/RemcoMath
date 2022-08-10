@@ -9,7 +9,7 @@ library RemcoMathLib {
         uint256 x, 
         uint256 y, 
         uint256 denominator
-    ) public pure returns (uint256 z) {
+    ) internal pure returns (uint256 z) {
         assembly {
             let mm := mulmod(x, y, not(0))
             let z0 := mul(x, y)
