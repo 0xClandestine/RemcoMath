@@ -1,10 +1,8 @@
-
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.10;
 
 library RemcoMathLib {
-
-    /// @notice Calculates (a × b ÷ denominator) rounded down with full precision. 
+    /// @notice Calculates (x × y ÷ denominator) rounded down with full precision. 
     /// Throws if result overflows a uint256 or denominator == 0
     /// @dev Credit to Remco Bloemen under MIT license https://xn--2-umb.com/21/muldiv
     function mulDiv(
@@ -39,11 +37,11 @@ library RemcoMathLib {
 
             // Invert denominator mod 2**256. Now that denominator is an odd number, 
             // it has an inverse modulo 2**256 such that denominator * inv = 1 mod
-            // 2**256. Then compute the inverse by starting with a seed that is correct
-            // for four bits (denominator * inv = 1 mod 2**4).
+            // 2**256. Now we compute the inverse by starting with a seed that is
+            // correct for four bits (denominator * inv = 1 mod 2**4).
             let inv := xor(mul(3, denominator), 2)
 
-            // Now use Newton-Raphson iteration to improve the precision. Thanks to 
+            // Now we use Newton-Raphson iteration to improve the precision. Thanks to 
             // Hensel's lifting lemma, this also works in modular arithmetic, doubling 
             // the correct bits in each step.
             inv := mul(inv, sub(2, mul(denominator, inv))) // inv mod 2^8
