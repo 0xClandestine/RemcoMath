@@ -1,6 +1,11 @@
 # RemcoMath
 
-This is a template for a Foundry project.
+RemcoMathLib is a **Gas optimized** FullMath implementation inspired by **Remco Bloemen**.
+
+```ml
+src
+├─ RemcoMathLib — "Gas optimized FullMath Implementation"
+```
 
 ## Installation
 
