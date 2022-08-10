@@ -3,7 +3,7 @@ pragma solidity 0.8.10;
 
 library RemcoMathLib {
     /// @notice Calculates (x × y ÷ denominator) rounded down with full precision. 
-    /// Throws if result overflows a uint256 or denominator == 0
+    /// Reverts if result does not fit within a uint256 value or denominator is zero.
     /// @dev Credit to Remco Bloemen under MIT license https://xn--2-umb.com/21/muldiv
     function mulDiv(
         uint256 x, 
@@ -26,14 +26,13 @@ library RemcoMathLib {
             if iszero(gt(denominator, z1)) { 
                 revert(0, 0) 
             }
-
+            
             let twos := and(sub(0, denominator), denominator)
             denominator := div(denominator, twos)
     
             let remainder := mulmod(x, y, denominator)
             z1 := sub(z1, gt(remainder, z0))
             z0 := add(div(sub(z0, remainder), twos), mul(z1, add(div(sub(0, twos), twos), 1)))
-    
 
             // Invert denominator mod 2**256. Now that denominator is an odd number, 
             // it has an inverse modulo 2**256 such that denominator * inv = 1 mod
